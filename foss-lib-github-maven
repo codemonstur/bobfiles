@@ -23,7 +23,7 @@ deploy
 -- Uploads binaries to Github
 deploy-github
     info [${PROJECT_NAME}] Uploading to Github
-    hub release create -a target/${PROJECT_NAME}-${PROJECT_VERSION}.jar -F src/docs/releases/release-${PROJECT_VERSION}.txt ${PROJECT_NAME}-${PROJECT_VERSION}
+    hub release create -a target/${PROJECT_NAME}.jar -F src/docs/releases/release-${PROJECT_VERSION}.txt ${PROJECT_NAME}-${PROJECT_VERSION}
 
 -- Uploads binaries to MavenCentral
 deploy-maven

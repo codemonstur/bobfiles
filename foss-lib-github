@@ -18,7 +18,7 @@ deploy
     git tag ${PROJECT_NAME}-${PROJECT_VERSION}
     git push && git push --tags
     info [${PROJECT_NAME}] Creating github release
-    hub release create -a target/${PROJECT_NAME}-${PROJECT_VERSION}.jar -F src/docs/releases/release-${PROJECT_VERSION}.txt ${PROJECT_NAME}-${PROJECT_VERSION}
+    hub release create -a target/${PROJECT_NAME}.jar -F src/docs/releases/release-${PROJECT_VERSION}.txt ${PROJECT_NAME}-${PROJECT_VERSION}
 
 -- Attempts to turn local build jar into native executable using Graal RC 14
 native
