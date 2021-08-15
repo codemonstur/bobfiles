@@ -1,5 +1,8 @@
 
 install
+    run-task install-linux
+
+install-linux
     info [${PROJECT_NAME}] Clean and build for install
     run-task -i clean build
     info [${PROJECT_NAME}] Copying target/${PROJECT_NAME}-${PROJECT_VERSION}.jar to /usr/local/bin/${PROJECT_NAME}.jar
