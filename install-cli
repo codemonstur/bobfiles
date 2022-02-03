@@ -1,0 +1,14 @@
+
+-- Runs a build and copies the jar to the right location for the OS that you are running.
+install
+    info [${PROJECT_NAME}] Clean and build for install
+    run-task -i clean build
+    if ${OS_IS_UNIX}
+        info [${PROJECT_NAME}] Copying target/${PROJECT_NAME}.jar to /usr/local/bin/${PROJECT_NAME}.jar
+        sudo cp target/${PROJECT_NAME}.jar /usr/local/bin/${PROJECT_NAME}.jar
+        sudo chmod +x /usr/local/bin/${PROJECT_NAME}.jar
+    endif
+    if ${OS_IS_WINDOWS}
+        info [${PROJECT_NAME}] Copying target\${PROJECT_NAME}.jar to C:\Programs\commands\${PROJECT_NAME}.jar
+      ! copy target\${PROJECT_NAME}.jar C:\Programs\commands\${PROJECT_NAME}.jar
+    endif
