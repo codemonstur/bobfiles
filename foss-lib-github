@@ -10,6 +10,11 @@ release-notes
     PREVIOUS_TAG = `git tag | sort -r | head -n 1`
     git log --pretty="%s" ${PREVIOUS_TAG}... master >> src/docs/releases/release-${PROJECT_VERSION}.txt
 
+-- Removes 
+remove-tag
+    git tag -d ${PROJECT_NAME}-${PROJECT_VERSION}
+    git push --delete origin ${PROJECT_NAME}-${PROJECT_VERSION}
+
 -- Performs; clean, build, tag repo with version, push and finally upload binaries to Github
 deploy
     info [${PROJECT_NAME}] Clean and build for deploy
