@@ -12,8 +12,8 @@ release-notes
 
 -- Removes the current tag from git locally and remotely
 remove-tag
-    git tag -d ${PROJECT_NAME}-${PROJECT_VERSION}
-    git push --delete origin ${PROJECT_NAME}-${PROJECT_VERSION}
+  - git tag -d ${PROJECT_NAME}-${PROJECT_VERSION}
+  - git push --delete origin ${PROJECT_NAME}-${PROJECT_VERSION}
 
 -- Performs; clean, build, tag repo with version, push and finally upload binaries to Github
 deploy
