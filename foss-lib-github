@@ -10,7 +10,7 @@ release-notes
     PREVIOUS_TAG = `git tag | sort -r | head -n 1`
     git log --pretty="%s" ${PREVIOUS_TAG}... master >> src/docs/releases/release-${PROJECT_VERSION}.txt
 
--- Removes 
+-- Removes the current tag from git locally and remotely
 remove-tag
     git tag -d ${PROJECT_NAME}-${PROJECT_VERSION}
     git push --delete origin ${PROJECT_NAME}-${PROJECT_VERSION}
