@@ -1,5 +1,4 @@
 build
-    info [${PROJECT_NAME}] Building
     run-task -i clean build
 
 -- Generates release notes in src/docs/releases/release-{version}.txt
@@ -39,7 +38,9 @@ deploy-github
 -- Uploads binaries to MavenCentral
 deploy-maven
     info [${PROJECT_NAME}] Uploading to MavenCentral
-    mvn clean deploy -P release
+    jar-sources
+    jar-javadoc
+    deploy-maven-central
     sed -E -i 's/<version>[0-9.]+<\/version>/<version>${PROJECT_VERSION}<\/version>/g' README.md
 
 -- Attempts to turn local build jar into native executable using Graal RC 14

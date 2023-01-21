@@ -1,5 +1,4 @@
 build
-    info [${PROJECT_NAME}] Building
     run-task -i clean build
 
 -- Generates release notes in src/docs/releases/release-{version}.txt
