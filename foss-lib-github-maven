@@ -41,7 +41,10 @@ deploy-maven
     jar-sources
     jar-javadoc
     deploy-maven-central
-    sed -E -i 's/<version>[0-9.]+<\/version>/<version>${PROJECT_VERSION}<\/version>/g' README.md
+    HAS_POM = `ls -a pom.xml 2>/dev/null | wc -l`
+    if (${HAS_POM} == 1)
+        sed -E -i 's/<version>[0-9.]+<\/version>/<version>${PROJECT_VERSION}<\/version>/g' README.md
+    endif
 
 -- Attempts to turn local build jar into native executable using Graal RC 14
 graal
