@@ -22,7 +22,9 @@ deploy
     info [${PROJECT_NAME}] Tagging and pushing to github
     git tag ${PROJECT_NAME}-${PROJECT_VERSION}
     git push && git push --tags
+    info [${PROJECT_NAME}] Creating github release
     run-task deploy-github
+    info [${PROJECT_NAME}] Creating maven central release
     run-task deploy-maven
 
 -- Removes the current tag from git locally and remotely
