@@ -19,13 +19,19 @@ deploy
     endif
     info [${PROJECT_NAME}] Clean and build for deploy
     run-task -i clean build
+
+    # Most likely to fail so we do this first
+    info [${PROJECT_NAME}] Creating maven central release
+    run-task deploy-maven
+
+    # If we can push to MavenCentral we will probably be able to push to Github as well
+    info [${PROJECT_NAME}] Creating github release
+    run-task deploy-github
+
+    # And now that we have deployed we mark the git repo
     info [${PROJECT_NAME}] Tagging and pushing to github
     git tag ${PROJECT_NAME}-${PROJECT_VERSION}
     git push && git push --tags
-    info [${PROJECT_NAME}] Creating github release
-    run-task deploy-github
-    info [${PROJECT_NAME}] Creating maven central release
-    run-task deploy-maven
 
 -- Removes the current tag from git locally and remotely
 remove-tag
