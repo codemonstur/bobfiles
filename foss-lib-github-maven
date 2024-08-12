@@ -18,7 +18,7 @@ deploy
         fail
     endif
     info [${PROJECT_NAME}] Clean and build for deploy
-    run-task -i clean build
+    run-task clean build
 
     # Most likely to fail so we do this first
     info [${PROJECT_NAME}] Creating maven central release
